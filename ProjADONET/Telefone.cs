@@ -22,6 +22,13 @@ namespace ProjADONET
             PessoaId = pessoaId;
         }
 
+        public Telefone(string dDD, string numero, string tipo)
+        {
+            DDD = dDD;
+            Numero = numero;
+            Tipo = tipo;
+        }
+
         public override string? ToString()
         {
             return $"DDD: {DDD}\nNumero: {Numero}\nTipo: {Tipo}";
