@@ -103,18 +103,19 @@ var readerT = command.ExecuteReader();
 
 while (readerT.Read())
 {
-    var telefonePessoa = new Pessoa(
+    var pessoaTelefone = new Pessoa(
         readerT.GetString(1),
         readerT.GetString(2),
         DateOnly.FromDateTime(readerT.GetDateTime(3))
         );
-        telefonePessoa.setId(readerT.GetInt32(0));
+        pessoaTelefone.setId(readerT.GetInt32(0));
     var telefoneLido = new Telefone(
         readerT.GetString(4),
         readerT.GetString(5),
         readerT.GetString(6)
         );
-    Console.WriteLine($"{telefonePessoa}\n{telefoneLido}\n\n");
+    pessoaTelefone.Telefones.Add(telefoneLido);
+    Console.WriteLine($"{pessoaTelefone}\n{telefoneLido}\n\n");
 }
 
 connection.Close();
